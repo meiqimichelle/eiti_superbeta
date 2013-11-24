@@ -1,0 +1,233 @@
+---
+layout: dataInfo
+title: Data
+description: This is a sample beta site and report for USEITI.
+---
+    
+   <nav class="fixNav animate" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div class="fixNavWrapper">
+        <div class="row logo">
+            <div class="six columns">
+              <a href="/index.html"><img src="{{ site.url }}/assets/img/useiti_logo.jpg" alt="USEITI logo"></a>
+              <p>Your source for information on <br/>mineral extraction on public lands.</p>
+            </div>
+            <div class="four columns search">
+            </div>
+          </div>
+        <div class="row nav">
+            <ul class="push_six six columns">
+                    <li class="three columns what"><a href="/index.html" itemprop="url"><div itemprop="name">What</div></a></li>
+                    <li class="three columns how"><a href="#" itemprop="url"><div itemprop="name">How</div></a></li>
+                    <li class="three columns data active"><a href="/data.html" itemprop="url"><div itemprop="name">Data</div></a></li>
+                    <li class="three columns reports"><a href="#" itemprop="url"><div itemprop="name">Reports</div></a></li>
+            </ul>
+          </div>
+      </div>
+    </nav>
+
+    <div id="main" role="main" itemscope itemprop="mainContentOfPage">
+        <div class="section top dataInfo">
+            <div class="row">
+                <div class="twelve columns">
+                    <h1>Data and information on the extractive sector in the U.S.</h1>
+                </div>
+            </div>
+        </div>
+      
+      <div class="dataSubHead">
+          <div class="row">
+            <div class="move">
+            <div class="four columns">
+              <div class="circle graph active">
+                <a href="/data.html">
+                  <h2>Facts &#38; Figures</h2>
+                  <img src="{{ site.url }}/assets/img/graph.svg" alt="graph">
+                </a>
+              </div>
+              <ul>
+              <li><a href="#analysis">Analysis</a></li>
+              <li><a href="#download">Download Data</a></li>
+              <li><a href="#">For Developers</a></li>
+              </ul>
+            </div>
+            <div class="four columns">
+              <div class="circle">
+                <a href="#">
+                  <h2>Extractive Industries in <br/>the U.S.</h2>
+                  <img src="{{ site.url }}/assets/img/oil.svg" alt="oil rig">
+                </a>
+              </div>
+            </div>
+            <div class="four columns">
+              <div class="circle">
+                <a href="#">
+                  <h2>The U.S. Extractive Legal Framework</h2>
+                  <img src="{{ site.url }}/assets/img/book.svg" alt="book">
+                </a>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="section mapBlock" id="analysis">
+            <div class="row">
+                <div class="twelve columns">
+                    <h1>How much money did states earn from their oil and gas sales?</h1>
+                    <div id="map" style="height:600px;">
+                        <div id="layer_selector" class="cartodb-infobox">
+                            <h1>Fiscal Year</h1>
+                          <ul>
+                            <li data="2003" class="selected">2003</li>
+                            <li data="2004">2004</li>
+                            <li data="2005">2005</li>
+                            <li data="2006">2006</li>
+                            <li data="2007">2007</li>
+                            <li data="2008">2008</li>
+                            <li data="2009">2009</li>
+                            <li data="2010">2010</li>
+                            <li data="2011">2011</li>
+                            <li data="2012">2012</li>
+                          </ul>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+      
+      <div class="section putty" id="download">
+        <div class="row">
+          <div class="twelve columns title dataInfo">
+              <h1>Want the data for your very own? <br/>Filter and download here.</h1>
+            
+            <div id="images"></div>
+            
+            <div id="testBox"></div>
+            
+          </div>
+          <div class="twelve columns">
+            <p>Stuff here.</p>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  
+  <!--<iframe width='100%' height='600' frameborder='0' src='http://onrrbeta.cartodb.com/viz/d5dc5672-43e8-11e3-9b15-09e0e2302f71/embed_map?title=false&description=true&search=false&shareable=false&cartodb_logo=true&layer_selector=true&legends=true&scrollwheel=true&sublayer_options=1&sql=&zoom=2&center_lat=39.977120098439634&center_lon=-96.45996093749999'></iframe>-->
+  
+  <!--<canvas id="myChart" width="400" height="400"></canvas>-->
+
+    <div class="footer-wrapper">
+      <footer class="container" role="contentinfo" itemscope itemtype="http://schema.org/WPFooter">
+      </footer>
+    </div>
+    
+    
+                    <!-- include google maps library *before* load cartodb.js -->
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <!-- include cartodb.js library -->
+    <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
+
+    <script>
+        // create layer selector
+      function createSelector(layer) {
+        var sql = new cartodb.SQL({ user: 'onrrbeta' });
+
+        var $options = $('#layer_selector li');
+        $options.click(function(e) {
+          // get the year of the selected layer
+          var $li = $(e.target);
+          var year = $li.attr('data');
+
+          // deselect all and select the clicked one
+          $options.removeClass('selected');
+          $li.addClass('selected');
+
+          // create query based on data from the layer
+//          var query = "select fy0312.*, gz.the_geom from fy03_thru_fy12_disbursement_states_nogeo fy0312 "
+//          + " JOIN gz_2010_us_040_00_5m gz ON fy0312.state = gz.name "
+//          + " where fy0312.fiscal_year = '" + year + "'";
+
+            var query = "SELECT fy0312.county,"
+            + "fy0312.disbursement,"
+            + "fy0312.disbursement_type,"
+            + "fy0312.fiscal_year,"
+            + "fy0312.state,"
+            + "fy0312.cartodb_id,"
+            + "gz.the_geom,"
+            + "gz.the_geom_webmercator"
+            + " FROM fy03_thru_fy12_disbursement_states_nogeo fy0312, gz_2010_us_040_00_5m gz"
+            + " WHERE fy0312.state = gz.name"
+            + " AND fy0312.fiscal_year = '" + year + "'"
+            
+//            console.log('query = ' + query);
+            
+          // change the query in the layer to update the map
+          layer.setQuery(query);
+        });
+      }
+    
+        
+      function main() {
+        cartodb.createVis('map', 'http://onrrbeta.cartodb.com/api/v2/viz/95406af4-44ec-11e3-9f93-47e85a33d736/viz.json', {
+            shareable: false,
+            title: false,
+            description: false,
+            search: false,
+            tiles_loader: true,
+            center_lat: 43.27312,
+            center_lon: -98.5821872,
+            zoom: 4
+        })
+        .done(function(vis, layers) {
+            createSelector(layers[1]);
+          // layer 0 is the base layer, layer 1 is cartodb layer
+          // setInteraction is disabled by default
+          layers[1].setInteraction(true);
+          layers[1].on('featureOver', function(e, pos, latlng, data) {
+            cartodb.log.log(e, pos, latlng, data);
+          });
+            
+          map = vis.getNativeMap();
+        })
+        .error(function(err) {
+          console.log(err);
+        });
+
+      }
+
+      window.onload = main;
+    </script>
+    
+    <!--
+    Chart.js -->
+    <script src="{{ site.url }}/assets/js/libs/Chart.min.js"></script>
+   <!-- <script>
+        //Get the context of the canvas element we want to select
+        var ctx = document.getElementById("myChart").getContext("2d");
+        var myNewChart = new Chart(ctx).Line(data);
+        new Chart(ctx).Line(data,options);
+        var data = {
+	labels : ["January","February","March","April","May","June","July"],
+	datasets : [
+		{
+			fillColor : "rgba(220,220,220,0.5)",
+			strokeColor : "rgba(220,220,220,1)",
+			pointColor : "rgba(220,220,220,1)",
+			pointStrokeColor : "#fff",
+			data : [65,59,90,81,56,55,40]
+		},
+		{
+			fillColor : "rgba(151,187,205,0.5)",
+			strokeColor : "rgba(151,187,205,1)",
+			pointColor : "rgba(151,187,205,1)",
+			pointStrokeColor : "#fff",
+			data : [28,48,40,19,96,27,100]
+		}
+	]
+}
+    </script> -->
+  
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>  
+    <script src="{{ site.url }}/assets/js/getFlickr.js"></script>
+
