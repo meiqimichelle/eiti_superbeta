@@ -95,6 +95,15 @@ description: This is a sample beta site and report for USEITI.
             </div>
         </div>
       
+        <div class="section mapBlock">
+          <div class="row">
+            <div class="twelve columns">
+              <h1>How much revenue from oil and gas was reported?</h1>
+              <svg class="chart"></svg>
+            </div>
+          </div>
+        </div>
+      
       <div class="section putty" id="download">
         <div class="row">
           <div class="twelve columns title dataInfo">
@@ -112,10 +121,6 @@ description: This is a sample beta site and report for USEITI.
       </div>
       
     </div>
-  
-  <!--<iframe width='100%' height='600' frameborder='0' src='http://onrrbeta.cartodb.com/viz/d5dc5672-43e8-11e3-9b15-09e0e2302f71/embed_map?title=false&description=true&search=false&shareable=false&cartodb_logo=true&layer_selector=true&legends=true&scrollwheel=true&sublayer_options=1&sql=&zoom=2&center_lat=39.977120098439634&center_lon=-96.45996093749999'></iframe>-->
-  
-  <!--<canvas id="myChart" width="400" height="400"></canvas>-->
 
     <div class="footer-wrapper">
       <footer class="container" role="contentinfo" itemscope itemtype="http://schema.org/WPFooter">
@@ -123,12 +128,36 @@ description: This is a sample beta site and report for USEITI.
     </div>
     
     
-                    <!-- include google maps library *before* load cartodb.js -->
+    <!-- include google maps library *before* load cartodb.js -->
     <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
     <!-- include cartodb.js library -->
     <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
 
-    <script>
+
+<script type="infowindow/html" id="infowindow_template">
+  
+  <div class="cartodb-popup">
+  <a href="#close" class="cartodb-popup-close-button close">x</a>
+  <div class="cartodb-popup-content-wrapper">
+    <div class="cartodb-popup-content">
+      <h4>state</h4>
+      <p>{{content.data.fy03_thru_fy12_disbursement_states_nogeo.state}}</p>
+      <h4>disbursement in usd</h4>
+      <p>{{content.data.fy03_thru_fy12_disbursement_states_nogeo.disbursement}}</p>
+      <h4>disbursement type</h4>
+      <p>{{content.data.fy03_thru_fy12_disbursement_states_nogeo.disbursement_type}}</p>
+      <h4>fiscal year</h4>
+      <p>{{content.data.fy03_thru_fy12_disbursement_states_nogeo.fiscal_year}}</p>
+    </div>
+  </div>
+  <div class="cartodb-popup-tip-container">
+  </div>
+</div>
+  
+</script>
+
+
+   <script>
         // create layer selector
       function createSelector(layer) {
         var sql = new cartodb.SQL({ user: 'onrrbeta' });
@@ -179,55 +208,22 @@ description: This is a sample beta site and report for USEITI.
             center_lon: -98.5821872,
             zoom: 4
         })
-        .done(function(vis, layers) {
-            createSelector(layers[1]);
+         .done(function(vis, layers) {
           // layer 0 is the base layer, layer 1 is cartodb layer
-          // setInteraction is disabled by default
-          layers[1].setInteraction(true);
-          layers[1].on('featureOver', function(e, pos, latlng, data) {
-            cartodb.log.log(e, pos, latlng, data);
-          });
-            
-          map = vis.getNativeMap();
-        })
-        .error(function(err) {
-          console.log(err);
-        });
+          var subLayer = layers[1].getSubLayer(0);
+          createSelector(subLayer);
 
+           var sublayer = layers[1].getSubLayer(0);
+
+           sublayer.infowindow.set('template', $('#infowindow_template').html());
+          }).on('error', function() {
+            console.log("some error occurred");
+          });
       }
 
       window.onload = main;
     </script>
     
-    <!--
-    Chart.js -->
-    <script src="{{ site.url }}/assets/js/libs/Chart.min.js"></script>
-   <!-- <script>
-        //Get the context of the canvas element we want to select
-        var ctx = document.getElementById("myChart").getContext("2d");
-        var myNewChart = new Chart(ctx).Line(data);
-        new Chart(ctx).Line(data,options);
-        var data = {
-	labels : ["January","February","March","April","May","June","July"],
-	datasets : [
-		{
-			fillColor : "rgba(220,220,220,0.5)",
-			strokeColor : "rgba(220,220,220,1)",
-			pointColor : "rgba(220,220,220,1)",
-			pointStrokeColor : "#fff",
-			data : [65,59,90,81,56,55,40]
-		},
-		{
-			fillColor : "rgba(151,187,205,0.5)",
-			strokeColor : "rgba(151,187,205,1)",
-			pointColor : "rgba(151,187,205,1)",
-			pointStrokeColor : "#fff",
-			data : [28,48,40,19,96,27,100]
-		}
-	]
-}
-    </script> -->
   
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>  
     <script src="{{ site.url }}/assets/js/getFlickr.js"></script>
-

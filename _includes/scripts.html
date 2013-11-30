@@ -33,34 +33,7 @@ if(!window.jQuery) {
 	<script src="{{ site.url }}/assets/js/libs/ui/jquery.validation.js"></script>
 	<script src="{{ site.url }}/assets/js/libs/gumby.init.js"></script>
     
-    <!--
-    Chart.js -->
-    <script src="{{ site.url }}/assets/js/libs/Chart.min.js"></script>
-   <!-- <script>
-        //Get the context of the canvas element we want to select
-        var ctx = document.getElementById("myChart").getContext("2d");
-        var myNewChart = new Chart(ctx).Line(data);
-        new Chart(ctx).Line(data,options);
-        var data = {
-	labels : ["January","February","March","April","May","June","July"],
-	datasets : [
-		{
-			fillColor : "rgba(220,220,220,0.5)",
-			strokeColor : "rgba(220,220,220,1)",
-			pointColor : "rgba(220,220,220,1)",
-			pointStrokeColor : "#fff",
-			data : [65,59,90,81,56,55,40]
-		},
-		{
-			fillColor : "rgba(151,187,205,0.5)",
-			strokeColor : "rgba(151,187,205,1)",
-			pointColor : "rgba(151,187,205,1)",
-			pointStrokeColor : "#fff",
-			data : [28,48,40,19,96,27,100]
-		}
-	]
-}
-    </script> -->
+    <!-- <script src="{{ site.url }}/assets/js/libs/Chart.min.js"></script> -->
 
 	<!--
 	gumby.min.js contains gumby.js, all UI modules and gumby.init.js
@@ -71,6 +44,8 @@ if(!window.jQuery) {
 
     <script src="{{ site.url }}/assets/js/classie.js"></script>
     <script src="{{ site.url }}/assets/js/animateOnScroll.js"></script>
+
+    <script src="http://d3js.org/d3.v3.min.js"></script>
 
 
 	<!-- Change UA-XXXXX-X to be your site's ID -->
@@ -89,3 +64,46 @@ if(!window.jQuery) {
 	<![endif]-->
 
 
+
+
+
+
+<script>
+var width = 960,
+    height = 500;
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+var chart = d3.select(".chart")
+    .attr("width", width)
+    .attr("height", height);
+
+d3.tsv("assets/data/data.tsv", type, function(error, data) {
+  y.domain([0, d3.max(data, function(d) { return d.value; })]);
+
+  var barWidth = width / data.length;
+
+  var bar = chart.selectAll("g")
+      .data(data)
+    .enter().append("g")
+      .attr("transform", function(d, i) { return "translate(" + i * barWidth + ",0)"; });
+
+  bar.append("rect")
+      .attr("y", function(d) { return y(d.value); })
+      .attr("height", function(d) { return height - y(d.value); })
+      .attr("width", barWidth - 1);
+
+  bar.append("text")
+      .attr("x", barWidth / 2)
+      .attr("y", function(d) { return y(d.value) + 3; })
+      .attr("dy", ".75em")
+      .text(function(d) { return d.value; });
+});
+
+function type(d) {
+  d.value = +d.value; // coerce to number
+  return d;
+}
+}
+</script>
