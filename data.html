@@ -3,7 +3,8 @@ layout: dataInfo
 title: Data
 description: This is a sample beta site and report for USEITI.
 ---
-    
+   <div ex:role="collection" id="ONRRdata" ex:itemTypes="Disbursement"></div> 
+
    <nav class="fixNav animate" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
       <div class="fixNavWrapper">
         <div class="row logo">
@@ -108,6 +109,47 @@ description: This is a sample beta site and report for USEITI.
         <div class="row">
           <div class="twelve columns title dataInfo">
               <h1>Want the data for your very own? <br/>Filter and download here.</h1>
+            
+             <div ex:role="facet"
+                 ex:collectionID="ONRRdata"
+                 ex:facetClass="TextSearch">
+            </div>
+            <div id="top-panels">
+            <table width="100%"><tr>
+                <td><div ex:role="facet"
+                         ex:collectionID="ONRRdata"
+                         ex:expression=".fund"
+                         ex:showMissing="false"
+                         ex:scroll="false"
+                         ex:facetLabel="Fund">
+                  </div></td>
+                <td><div ex:role="facet"
+                         ex:collectionID="ONRRdata"
+                         ex:expression=".state"
+                         ex:showMissing="false"
+                         ex:scroll="true"
+                         ex:facetLabel="State">
+                  </div></td>
+                <td><div ex:role="facet"
+                         ex:collectionID="ONRRdata"
+                         ex:expression=".disbursementType"
+                         ex:showMissing="false"
+                         ex:scroll="false"
+                         ex:facetLabel="Type">
+                  </div></td>
+            </tr></table>
+            </div>
+            <div ex:role="view" 
+                 ex:viewClass="Tabular"
+                 ex:collectionID="ONRRdata"
+                 ex:columns=".fund, .state, .disbursementType, ._2013"
+                 ex:columnLabels="Fund, State, Type, 2013"
+                 ex:columnFormats="list, list, list, number"
+            ></div>
+        </td>
+    </tr></table>
+            
+            
             
             <div id="images"></div>
             
