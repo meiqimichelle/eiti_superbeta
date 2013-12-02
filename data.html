@@ -19,7 +19,7 @@ description: This is a sample beta site and report for USEITI.
             <ul class="push_six six columns">
                     <li class="three columns what"><a href="{{ site.url }}/index.html" itemprop="url"><div itemprop="name">What</div></a></li>
                     <li class="three columns how"><a href="#" itemprop="url"><div itemprop="name">How</div></a></li>
-                    <li class="three columns data active"><a href="{{ site.url }}/data.html" itemprop="url"><div itemprop="name">Data</div></a></li>
+                    <li class="three columns data current"><a href="{{ site.url }}/data.html" itemprop="url"><div itemprop="name">Data</div></a></li>
                     <li class="three columns reports"><a href="#" itemprop="url"><div itemprop="name">Reports</div></a></li>
             </ul>
           </div>
@@ -112,71 +112,94 @@ description: This is a sample beta site and report for USEITI.
               <h1>Want the data for your very own? <br/>Filter and download here.</h1>
             
             
-    
-    <h1>Hierarchical Facet Test - Flickr Photos</h1>
-    
-    <p style="border-bottom: 1px dotted #aaa; font-style: italic; color: #888;">The photos in this web page come from Flickr.</p>
-    
-    <table cellspacing="0" cellpadding="0" border="0" width="100%"><tr>
-            
-            <div ex:role="facet" 
-                 ex:collectionID="ONRRdata"
-                 ex:facetClass="TextSearch">
-            </div>
-            <div id="top-panels">
-            <table width="100%"><tr>
-                <td><div ex:role="facet"
-                         ex:collectionID="ONRRdata"
-                         ex:expression=".fund"
-                         ex:showMissing="false"
-                         ex:scroll="false"
-                         ex:facetLabel="Fund">
-                  </div></td>
-                <td><div ex:role="facet"
-                         ex:collectionID="ONRRdata"
-                         ex:expression=".state"
-                         ex:showMissing="false"
-                         ex:scroll="true"
-                         ex:facetLabel="State">
-                  </div></td>
-                <td><div ex:role="facet"
-                         ex:collectionID="ONRRdata"
-                         ex:expression=".disbursementType"
-                         ex:showMissing="false"
-                         ex:scroll="false"
-                         ex:facetLabel="Type">
-                  </div></td>
-            </tr></table>
-            </div>
-            <div ex:role="view" 
-                 ex:viewClass="Tabular"
-                 ex:collectionID="ONRRdata"
-                 ex:columns=".fund, .state, .disbursementType, ._2013"
-                 ex:columnLabels="Fund, State, Type, 2013"
-                 ex:columnFormats="list, list, list, number"
-            ></div>
-        </td>
-    </tr></table>
-            
-            
             
           <!--  <div id="images"></div>
             
             <div id="testBox"></div>-->
             
           </div>
-          <div class="twelve columns">
-            <p>Stuff here.</p>
-          </div>
         </div>
       </div>
       
-    </div>
+      
+      
+    </div> <!-- end mainContent -->
 
     <div class="footer-wrapper">
       <footer class="container" role="contentinfo" itemscope itemtype="http://schema.org/WPFooter">
       </footer>
     </div>
+
+
+<!-- FOR TOMORROW -->
+<!-- See about meshing (working) exhibit with Gumby centering
+<!-- Figure out how to structure data so that years display well and/or can turn off/on -->
+
+      <div class="section putty">
+        <div class="row">
+          <div class="twelve columns">
+            <section class="tabs">
+              <ul class="tab-nav">
+                  <li class="active"><a href="#">Disbursements</a></li>
+                  <li> <a href="#">Reported Revenues</a></li>
+                  <li><a href="#">Third Tab</a></li>
+              </ul>
+              
+              <!-- Disbursements Tab -->
+              <div class="tab-content active">
+                <p>Mineral royalties collected by the federal government are disbursed to a variety of funds. Fifty percent of onshore lease revenue goes to the state in which the lease is located (except in the case of Alaska, where 90 percent of the royalties go back to the state), 40 percent is disbursed to the national Reclamation Fund (except in the case of Alaska, where no Reclamation Fund disbursement takes place), and the remaining 10 percent goes to the U.S. Treasury. In the case of offshore leases, 27 percent of all payments go to the state in which lease is located, $150 million is deposited to the Historic Preservation Fund each year, and the remaining money goes to the U.S. Treasury. <em> Source: <a href="http://taxfoundation.org/article/federal-mineral-royalty-disbursements-states-and-effects-sequestration">taxfoundation.org</a>.</em></p>
+                <p>Browse and filter disbursement data from fiscal year 2003 through 2013 here.</p>
+                  <h1>Filter and Search</h1>
+                  <div ex:role="facet" 
+                       ex:collectionID="ONRRdata"
+                       ex:facetClass="TextSearch">
+                  </div>
+                <br/>
+                <p>Or select what you'd like to see:</p>
+                  <div id="top-panels">
+                    <table width="100%"><tr>
+                        <td><div ex:role="facet"
+                                 ex:collectionID="ONRRdata"
+                                 ex:expression=".fund"
+                                 ex:showMissing="false"
+                                 ex:scroll="true"
+                                 ex:facetLabel="Fund">
+                          </div></td>
+                        <td><div ex:role="facet"
+                                 ex:collectionID="ONRRdata"
+                                 ex:expression=".state"
+                                 ex:showMissing="false"
+                                 ex:scroll="true"
+                                 ex:facetLabel="State">
+                          </div></td>
+                        <td><div ex:role="facet"
+                                 ex:collectionID="ONRRdata"
+                                 ex:expression=".disbursementType"
+                                 ex:showMissing="false"
+                                 ex:scroll="true"
+                                 ex:facetLabel="Type">
+                          </div></td>
+                      </tr></table>
+                    </div>
+                      <div ex:role="view" 
+                         ex:viewClass="Tabular"
+                         ex:collectionID="ONRRdata"
+                         ex:columns=".fund, .state, .disbursementType, ._2013"
+                         ex:columnLabels="Fund, State, Type, 2013"
+                         ex:columnFormats="list, list, list, number"
+                      ></div> 
+              </div>
+              <div class="tab-content exhibitTab">
+                  <p>Reported revenues consist of royalties, rents, bonuses, and other revenues that mineral royalty payors report to ONRR. The royalty 
+transactions include sales volumes, sales values and royalties.</p>
+              </div>
+              <div class="tab-content">
+                  <p>Don't forget about me! I'm tab 3!</p>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
     
     
     <!-- include google maps library *before* load cartodb.js -->

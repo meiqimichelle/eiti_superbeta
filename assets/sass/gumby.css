@@ -1,0 +1,60 @@
+/*
+Syntax error: File to import not found or unreadable: extensions/modular-scale/stylsheets/modular-scale.
+              Load paths:
+                /Users/michellehertzfeld/Documents/Repos/eiti_superbeta/assets
+                /Users/michellehertzfeld/Documents/Repos/eiti_superbeta/assets/sass
+                /Users/michellehertzfeld/Documents/Repos/eiti_superbeta/assets/css
+        on line 21 of sass/gumby.scss
+
+16: * http://www.opensource.org/licenses/mit-license.php
+17: *\/
+18: 
+19: @charset "UTF-8";
+20: 
+21: @import "extensions/modular-scale/stylsheets/modular-scale";
+22: 
+23: @import "var/settings";
+24: @import "var/lists";
+25: @import "var/icons/entypo";
+26: 
+
+Backtrace:
+sass/gumby.scss:21
+/Users/michellehertzfeld/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/lib/sass/tree/import_node.rb:67:in `rescue in import'
+/Users/michellehertzfeld/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/lib/sass/tree/import_node.rb:45:in `import'
+/Users/michellehertzfeld/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/lib/sass/tree/import_node.rb:28:in `imported_file'
+/Users/michellehertzfeld/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/lib/sass/tree/import_node.rb:37:in `css_import?'
+/Users/michellehertzfeld/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:217:in `visit_import'
+/Users/michellehertzfeld/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/michellehertzfeld/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/Users/michellehertzfeld/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/michellehertzfeld/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/michellehertzfeld/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/michellehertzfeld/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:109:in `block in visit_children'
+/Users/michellehertzfeld/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:121:in `with_environment'
+/Users/michellehertzfeld/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:108:in `visit_children'
+/Users/michellehertzfeld/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/michellehertzfeld/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:128:in `visit_root'
+/Users/michellehertzfeld/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/michellehertzfeld/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/Users/michellehertzfeld/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:7:in `visit'
+/Users/michellehertzfeld/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/lib/sass/tree/root_node.rb:20:in `render'
+/Users/michellehertzfeld/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/lib/sass/engine.rb:315:in `_render'
+/Users/michellehertzfeld/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/lib/sass/engine.rb:262:in `render'
+/Users/michellehertzfeld/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/lib/sass/plugin/compiler.rb:362:in `update_stylesheet'
+/Users/michellehertzfeld/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/lib/sass/plugin/compiler.rb:203:in `block in update_stylesheets'
+/Users/michellehertzfeld/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/lib/sass/plugin/compiler.rb:201:in `each'
+/Users/michellehertzfeld/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/lib/sass/plugin/compiler.rb:201:in `update_stylesheets'
+/Users/michellehertzfeld/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/lib/sass/plugin/compiler.rb:283:in `block in watch'
+/Users/michellehertzfeld/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/vendor/listen/lib/listen/multi_listener.rb:108:in `call'
+/Users/michellehertzfeld/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/vendor/listen/lib/listen/multi_listener.rb:108:in `on_change'
+/Users/michellehertzfeld/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/vendor/listen/lib/listen/multi_listener.rb:117:in `block in initialize_adapter'
+/Users/michellehertzfeld/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/vendor/listen/lib/listen/adapter.rb:198:in `call'
+/Users/michellehertzfeld/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/vendor/listen/lib/listen/adapter.rb:198:in `report_changes'
+/Users/michellehertzfeld/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/vendor/listen/lib/listen/adapter.rb:210:in `poll_changed_dirs'
+/Users/michellehertzfeld/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/vendor/listen/lib/listen/adapters/darwin.rb:38:in `block in start'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: File to import not found or unreadable: extensions/modular-scale/stylsheets/modular-scale.\A               Load paths:\A                 /Users/michellehertzfeld/Documents/Repos/eiti_superbeta/assets\A                 /Users/michellehertzfeld/Documents/Repos/eiti_superbeta/assets/sass\A                 /Users/michellehertzfeld/Documents/Repos/eiti_superbeta/assets/css\A         on line 21 of sass/gumby.scss\A \A 16: * http://www.opensource.org/licenses/mit-license.php\A 17: */\A 18: \A 19: @charset \"UTF-8\";\A 20: \A 21: @import \"extensions/modular-scale/stylsheets/modular-scale\";\A 22: \A 23: @import \"var/settings\";\A 24: @import \"var/lists\";\A 25: @import \"var/icons/entypo\";\A 26: "; }

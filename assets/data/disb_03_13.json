@@ -1,4 +1,9 @@
 {
+  types: {
+           "Disbursement" : {
+               pluralLabel: "Disbursements"
+           }
+  },
   
   items: [
   

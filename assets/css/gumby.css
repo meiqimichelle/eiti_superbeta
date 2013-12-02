@@ -2610,8 +2610,8 @@ nav
 .nav ul li { font-size: 1.4em; font-weight: 700; text-align: center; }
 .nav ul li a { color: black; }
 
-.navStyle, .what, .how, .data, .reports, .active { border-bottom: 5px solid #b32d27; }
-.navStyle:hover, .what:hover, .how:hover, .data:hover, .reports:hover, .active:hover, .navStyle:focus, .what:focus, .how:focus, .data:focus, .reports:focus, .active:focus { border-bottom-width: 11px; }
+.navStyle, .what, .how, .data, .reports, .current { border-bottom: 5px solid #b32d27; }
+.navStyle:hover, .what:hover, .how:hover, .data:hover, .reports:hover, .current:hover, .navStyle:focus, .what:focus, .how:focus, .data:focus, .reports:focus, .current:focus { border-bottom-width: 11px; }
 
 .what { border-color: #b32d27; }
 
@@ -2621,7 +2621,7 @@ nav
 
 .reports { border-color: #954a3c; }
 
-.active { border-bottom-width: 11px; /*&::after {
+.current { border-bottom-width: 11px; /*&::after {
 content: ".";
 xdisplay: block;
 width: 0px;
@@ -2704,8 +2704,34 @@ data and information
 .dataSubHead ul li a:hover, .dataSubHead ul li a:focus { background-color: #7cbeca; }
 .dataSubHead h2 { padding-top: 20%; font-size: 26px; color: white; font-weight: 700; padding-right: 15px; padding-left: 15px; }
 .dataSubHead .graph h2 { padding-top: 30%; }
-.dataSubHead .active { height: 250px; width: 250px; border-radius: 50%; border: 2px solid black; background-color: #8ec7d2; }
+.dataSubHead .current { height: 250px; width: 250px; border-radius: 50%; border: 2px solid black; background-color: #8ec7d2; }
 
 .move { margin-top: -130px; }
 
 .mapBlock { margin-top: 30px; margin-bottom: 60px; }
+
+/*============================================
+Sandbox styling for data and maps
+============================================*/
+.chart rect { fill: steelblue; }
+
+.chart text { fill: white; font: 10px sans-serif; text-anchor: middle; }
+
+#top-panels > table { background: #c8d7d9; border: none; }
+
+.tab-content { background-color: #c8d7d9; padding: 20px 30px; }
+.tab-content h1 { font-size: 1.5em; font-weight: 700; }
+
+.tab-nav { border-bottom: none; }
+
+.tab-nav > li.active > a { background: #c8d7d9; }
+
+.tab-nav > li > a { text-shadow: none; border: none; -webkit-border-radius: 0; -moz-border-radius: 0; -ms-border-radius: 0; -o-border-radius: 0; border-radius: 0; }
+
+.tab-nav > li { -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; }
+
+.exhibit-text-facet { width: 50%; }
+.exhibit-text-facet:before { content: "Type a search term here: "; }
+
+.exhibitData { background-color: #c8d7d9; padding-left: 30px; }
+.exhibitData h1 { font-size: 2.16em; line-height: 1em; font-weight: 700; }
