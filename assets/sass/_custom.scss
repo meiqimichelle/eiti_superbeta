@@ -428,6 +428,12 @@ data and information
 .mapBlock {
   margin-top: 30px;
   margin-bottom: 60px;
+  h1 {
+    font-size: 3em;
+  }
+  h2 {
+    font-size: 2em;
+  }
 }
 
 /*============================================
@@ -492,6 +498,33 @@ Sandbox styling for data and maps
 }
 p.noMargin {
   margin-bottom: 0;
+}
+section.tabs {
+  margin-bottom: 40px;
+}
+.footer {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  color: $white;
+  h1 {
+    font-size: 1em;
+    color: $white;
+    font-weight:700;
+    text-transform: uppercase;
+  }
+  ul {
+    padding-left: 15px;
+    li {
+      padding-bottom: 0;
+      line-height: 1.3em;
+      a {
+      color: $white;
+      &:hover, &:focus {
+        text-decoration: underline;
+      }
+    }
+    }
+  }
 }
 .exhibitData {
   background-color: $chartblue;

@@ -18,9 +18,9 @@ description: This is a sample beta site and report for USEITI.
         <div class="row nav">
             <ul class="push_six six columns">
                     <li class="three columns what"><a href="{{ site.url }}/index.html" itemprop="url"><div itemprop="name">What</div></a></li>
-                    <li class="three columns how"><a href="#" itemprop="url"><div itemprop="name">How</div></a></li>
+                    <li class="three columns how"><a href="{{ site.url }}/how.html" itemprop="url"><div itemprop="name">How</div></a></li>
                     <li class="three columns data current"><a href="{{ site.url }}/data.html" itemprop="url"><div itemprop="name">Data</div></a></li>
-                    <li class="three columns reports"><a href="#" itemprop="url"><div itemprop="name">Reports</div></a></li>
+                    <li class="three columns reports"><a href="{{ site.url }}/reports.html" itemprop="url"><div itemprop="name">Reports</div></a></li>
             </ul>
           </div>
       </div>
@@ -46,9 +46,9 @@ description: This is a sample beta site and report for USEITI.
                 </a>
               </div>
               <ul>
-                <li><a href="#analysis">Analysis</a></li>
-                <li class="skip"><a href="#" gumby-goto="[data-target='download']">Download Data</a></li>
-                <li><a href="#">For Developers</a></li>
+                <li><a href="#" class="skip" gumby-goto="[data-target='analysis']" gumby-offset="-50">Analysis</a></li>
+                <li ><a href="#" class="skip" gumby-goto="[data-target='download']" gumby-offset="-50">Download Data</a></li>
+                <li><a href="#" class="skip" gumby-goto="[data-target='footer']" gumby-offset="+10000">For Developers</a></li>
               </ul>
             </div>
             <div class="four columns">
@@ -71,7 +71,7 @@ description: This is a sample beta site and report for USEITI.
           </div>
         </div>
         
-       <div class="section mapBlock" id="analysis">
+      <!-- <div class="section mapBlock" data-target="analysis">
             <div class="row">
                 <div class="twelve columns">
                     <h1>How much money did states earn from their oil and gas sales?</h1>
@@ -94,12 +94,17 @@ description: This is a sample beta site and report for USEITI.
                     </div> 
                 </div>
             </div>
-        </div>
+        </div>-->
       
         <div class="section mapBlock">
           <div class="row">
             <div class="twelve columns">
-              <h1>How much revenue was earned in FY12 from lease blocks in the Gulf of Mexico?</h1>
+              <h1>How much revenue is earned on offshore oil and gas leases in the Gulf of Mexico?</h1>
+              <h2>Understanding offshore revenue</h2>
+              <p>Revenues are collected from offshore leases on Federal land in several ways. First, when a lease is first put to bid, the winning company pays a <strong>bonus</strong>. Once a company wins a lease, it has up to seven years to start production on that plot. During this time before production, the company pays <strong>rent</strong>. This is a fixed price-per-acre amount. Finally, once a lease starts producing, the company stops paying rent and instead starts paying <strong>royalties</strong>.</p>
+              <h2>Explore bonus and rent payments on offshore leases</h2>
+              <iframe width='100%' height='520' frameborder='0' src='http://onrrbeta.cartodb.com/viz/56765f16-5a47-11e3-b5df-f1b63be1f8ed/embed_map?title=false&description=false&search=false&shareable=false&cartodb_logo=true&layer_selector=false&legends=true&scrollwheel=true&sublayer_options=1&sql=&sw_lat=25.918526162075153&sw_lon=-96.85546875&ne_lat=30.65681556429287&ne_lon=-86.30859375'></iframe>
+              <h2>Explore royalty payments on offshore leases</h2>
               <iframe width='100%' height='520' frameborder='0' src='http://onrrbeta.cartodb.com/viz/56765f16-5a47-11e3-b5df-f1b63be1f8ed/embed_map?title=false&description=false&search=false&shareable=false&cartodb_logo=true&layer_selector=false&legends=true&scrollwheel=true&sublayer_options=1&sql=&sw_lat=25.918526162075153&sw_lon=-96.85546875&ne_lat=30.65681556429287&ne_lon=-86.30859375'></iframe>
               <!--<svg class="chart"></svg>-->
             </div>
@@ -120,16 +125,7 @@ description: This is a sample beta site and report for USEITI.
           </div>
         </div>
       </div>
-      
-      
-      
-    </div> <!-- end mainContent -->
-
-    <div class="footer-wrapper">
-      <footer class="container" role="contentinfo" itemscope itemtype="http://schema.org/WPFooter">
-      </footer>
-    </div>
-
+  </div> <!-- end mainContent -->
 
 <!-- FOR TOMORROW -->
 <!-- Figure out how to structure data so that years display well and/or can turn off/on -->
@@ -211,9 +207,8 @@ description: This is a sample beta site and report for USEITI.
                     <p>Now that you know how our disbursement data works, go ahead and take a look. Browse and filter disbursement data from <U.S. Government fiscal year span class="ttip" data-tooltip="The U.S. Government’s Fiscal Year starts on October 1 and ends on September 30.">(FY)<i class="icon-help-circled"></i></span>2003 through 2013 here.</p>
                   </div>
                 </div>
-                <h1>Filter and Search</h1>
-                
-                <div class="row">
+                <h1>View and Filter the Data</h1>
+                <!--<div class="row">
                   <div class="six columns">
                     <p class="noMargin">Type a search term here:</p>
                     <div ex:role="facet" 
@@ -222,10 +217,9 @@ description: This is a sample beta site and report for USEITI.
                     </div>
                   </div>
                 </div>
-                <br/>
+                <br/>-->
                 <div class="row">
                   <div class="twelve columns">
-                    <p class="noMargin">Or select what you'd like to see:</p>
                     <div id="top-panels">
                       <div class="four columns">
                         <div ex:role="facet"
@@ -233,7 +227,7 @@ description: This is a sample beta site and report for USEITI.
                                  ex:expression=".fund"
                                  ex:showMissing="false"
                                  ex:scroll="true"
-                                 ex:facetLabel="Fund">
+                                 ex:facetLabel="Filter by Fund">
                         </div>
                       </div>
                       <div class="four columns">
@@ -242,7 +236,7 @@ description: This is a sample beta site and report for USEITI.
                                    ex:expression=".state"
                                    ex:showMissing="false"
                                    ex:scroll="true"
-                                   ex:facetLabel="State">
+                                   ex:facetLabel="Filter by State">
                           </div>
                       </div>
                       <div class="four columns">
@@ -251,7 +245,7 @@ description: This is a sample beta site and report for USEITI.
                                  ex:expression=".disbursementType"
                                  ex:showMissing="false"
                                  ex:scroll="true"
-                                 ex:facetLabel="Type">
+                                 ex:facetLabel="Filter by State Share Subcategory">
                           </div>
                       </div>
                       </div>
@@ -300,7 +294,66 @@ transactions include sales volumes, sales values and royalties.</p>
           </div>
         </div>
       </div>
-    
+
+      <div class="section" data-target="developers">
+        <div class="row">
+          <div class="twelve columns title dataInfo">
+            <h1>For Developers</h1>
+            <p>This is where info on our API will live.</p>
+          </div>
+        </div>
+      </div>
+      
+  
+
+    <div class="footer-wrapper">
+      <footer class="container" role="contentinfo" itemscope itemtype="http://schema.org/WPFooter">
+        <div class="section blue footer" data-target="footer">
+          <div class="row">
+            <div class="three columns">
+              <h1>Find your way</h1>
+              <ul>
+                <li><a href="{{ site.url }}/index.html" itemprop="url"><div itemprop="name">What</div></a></li>
+                <li><a href="{{ site.url }}/how.html" itemprop="url"><div itemprop="name">How</div></a></li>
+                <li><a href="{{ site.url }}/data.html" itemprop="url"><div itemprop="name">Data</div></a></li>
+                <li><a href="{{ site.url }}/reports.html" itemprop="url"><div itemprop="name">Reports</div></a></li>
+              </ul>
+            </div>
+            <div class="three columns">
+              <h1>Government Partners</h1>
+              <ul>
+                <li>Links</li>
+                <li>to</li>
+                <li>partners</li>
+                <li>here</li>
+              </ul>
+            </div>
+            <div class="three columns">
+              <h1>Industry Partners</h1>
+              <ul>
+                <li>Links</li>
+                <li>to</li>
+                <li>partners</li>
+                <li>here</li>
+                <li>Links</li>
+                <li>to</li>
+                <li>partners</li>
+                <li>here</li>
+              </ul>
+            </div>
+            <div class="three columns">
+              <h1>Civil Society Partners</h1>
+              <ul>
+                <li>Links</li>
+                <li>to</li>
+                <li>partners</li>
+                <li>here</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
     
     <!-- include google maps library *before* load cartodb.js -->
     <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
