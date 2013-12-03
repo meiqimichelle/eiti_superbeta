@@ -2604,12 +2604,12 @@ nav
 .shrink { height: 70px; padding-top: 11px; }
 .shrink p { display: none; }
 .shrink img { width: 60%; -webkit-transition: all 0.3s; -moz-transition: all 0.3s; transition: all 0.3s; }
-.shrink .nav { top: -41px; }
+.shrink .nav { top: -40px; }
 
 .logo { position: relative; }
 .logo p { font-size: 18px; font-weight: 700; line-height: 1.2em; padding-top: .7em; }
 
-.nav { position: relative; top: -19px; }
+.nav { position: relative; top: -18px; }
 .nav ul { margin-bottom: 0; }
 .nav ul li { font-size: 1.4em; font-weight: 700; text-align: center; }
 .nav ul li a { color: black; }
@@ -2740,8 +2740,7 @@ Sandbox styling for data and maps
 .disbTabSection ul { list-style: disc inside; }
 .disbTabSection ul li { padding-bottom: 0; }
 
-.exhibit-text-facet { width: 50%; }
-.exhibit-text-facet:before { content: "Type a search term here: "; }
+p.noMargin { margin-bottom: 0; }
 
 .exhibitData { background-color: #c8d7d9; padding-left: 30px; }
 .exhibitData h1 { font-size: 2.16em; line-height: 1em; font-weight: 700; }

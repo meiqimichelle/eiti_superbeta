@@ -61,7 +61,7 @@ nav
   transition: all 0.3s; 
   }
   .nav {
-  top: -41px;
+  top: -40px;
   }
 }
 
@@ -77,7 +77,7 @@ nav
 
 .nav {
   position: relative;
-  top: -19px;
+  top: -18px;
   ul {
     margin-bottom:0;
     li {
@@ -490,11 +490,8 @@ Sandbox styling for data and maps
     }
   }
 }
-.exhibit-text-facet {
-  width: 50%;
-  &:before {
-    content: "Type a search term here: "
-  }
+p.noMargin {
+  margin-bottom: 0;
 }
 .exhibitData {
   background-color: $chartblue;

@@ -39,16 +39,16 @@ description: This is a sample beta site and report for USEITI.
           <div class="row">
             <div class="move">
             <div class="four columns">
-              <div class="circle graph active">
+              <div class="circle graph current">
                 <a href="/data.html">
                   <h2>Facts &#38; Figures</h2>
                   <img src="{{ site.url }}/assets/img/graph.svg" alt="graph">
                 </a>
               </div>
               <ul>
-              <li><a href="#analysis">Analysis</a></li>
-              <li><a href="#download">Download Data</a></li>
-              <li><a href="#">For Developers</a></li>
+                <li><a href="#analysis">Analysis</a></li>
+                <li class="skip"><a href="#" gumby-goto="[data-target='download']">Download Data</a></li>
+                <li><a href="#">For Developers</a></li>
               </ul>
             </div>
             <div class="four columns">
@@ -106,7 +106,7 @@ description: This is a sample beta site and report for USEITI.
           </div>
         </div> 
       
-      <div class="section putty" id="download">
+      <div class="section putty" data-target="download">
         <div class="row">
           <div class="twelve columns title dataInfo">
               <h1>Want the data for your very own? <br/>Filter and download here.</h1>
@@ -132,8 +132,11 @@ description: This is a sample beta site and report for USEITI.
 
 
 <!-- FOR TOMORROW -->
-<!-- See about meshing (working) exhibit with Gumby centering
 <!-- Figure out how to structure data so that years display well and/or can turn off/on -->
+<!-- Dollar amounts are not numbers yet, so can't sort propery -->
+<!-- Does not display counties/parishes yet -->
+<!-- Perhaps can make column display selectable? -->
+<!-- fix skip link thing -->
 
       <div class="section putty">
         <div class="row">
@@ -208,45 +211,65 @@ description: This is a sample beta site and report for USEITI.
                     <p>Now that you know how our disbursement data works, go ahead and take a look. Browse and filter disbursement data from <U.S. Government fiscal year span class="ttip" data-tooltip="The U.S. Government’s Fiscal Year starts on October 1 and ends on September 30.">(FY)<i class="icon-help-circled"></i></span>2003 through 2013 here.</p>
                   </div>
                 </div>
-                  <h1>Filter and Search</h1>
-                  <div ex:role="facet" 
-                       ex:collectionID="ONRRdata"
-                       ex:facetClass="TextSearch">
+                <h1>Filter and Search</h1>
+                
+                <div class="row">
+                  <div class="six columns">
+                    <p class="noMargin">Type a search term here:</p>
+                    <div ex:role="facet" 
+                         ex:collectionID="ONRRdata"
+                         ex:facetClass="TextSearch">
+                    </div>
                   </div>
+                </div>
                 <br/>
-                <p>Or select what you'd like to see:</p>
-                  <div id="top-panels">
-                    <table width="100%"><tr>
-                        <td><div ex:role="facet"
+                <div class="row">
+                  <div class="twelve columns">
+                    <p class="noMargin">Or select what you'd like to see:</p>
+                    <div id="top-panels">
+                      <div class="four columns">
+                        <div ex:role="facet"
                                  ex:collectionID="ONRRdata"
                                  ex:expression=".fund"
                                  ex:showMissing="false"
                                  ex:scroll="true"
                                  ex:facetLabel="Fund">
-                          </div></td>
-                        <td><div ex:role="facet"
-                                 ex:collectionID="ONRRdata"
-                                 ex:expression=".state"
-                                 ex:showMissing="false"
-                                 ex:scroll="true"
-                                 ex:facetLabel="State">
-                          </div></td>
-                        <td><div ex:role="facet"
+                        </div>
+                      </div>
+                      <div class="four columns">
+                          <div ex:role="facet"
+                                   ex:collectionID="ONRRdata"
+                                   ex:expression=".state"
+                                   ex:showMissing="false"
+                                   ex:scroll="true"
+                                   ex:facetLabel="State">
+                          </div>
+                      </div>
+                      <div class="four columns">
+                          <div ex:role="facet"
                                  ex:collectionID="ONRRdata"
                                  ex:expression=".disbursementType"
                                  ex:showMissing="false"
                                  ex:scroll="true"
                                  ex:facetLabel="Type">
-                          </div></td>
-                      </tr></table>
+                          </div>
+                      </div>
+                      </div>
                     </div>
+                  </div>
+                  <br/>
+                  <div class="row">
+                    <div class="twelve columns">
                       <div ex:role="view" 
                          ex:viewClass="Tabular"
                          ex:collectionID="ONRRdata"
                          ex:columns=".fund, .state, .disbursementType, ._2013"
                          ex:columnLabels="Fund, State, Type, 2013"
                          ex:columnFormats="list, list, list, number"
-                      ></div> 
+                         ex:rowStyler="zebraStyler"
+                      ></div>
+                    </div>
+                  </div>
               </div>
               <div class="tab-content exhibitTab">
                 <p>Reported revenues consist of royalties, rents, bonuses, and other revenues that mineral royalty payors report to ONRR. The royalty 
@@ -258,14 +281,14 @@ transactions include sales volumes, sales values and royalties.</p>
               <div class="tab-content">
                  <h1>Download all available data</h1>
                 <p>Our data is updated yearly and is available as CSV or JSON. A data dictionary is provided below, and in addition each of the tabs in this data section has samples and explanations of our data.</p>
-                <div class="row disbTabSection bgputty">
-                  <div class="push_one five columns">
-                    <div class="large secondary btn">
+                <div class="row disbTabSection bgputty textCenter">
+                  <div class="six columns">
+                    <div class="large secondary btn icon-right entypo icon-download">
                       <a href="#">Download CSV</a>
                     </div>
                   </div>
-                  <div class="push_one five columns">
-                    <div class="large secondary btn">
+                  <div class="six columns">
+                    <div class="large secondary btn icon-right entypo icon-download">
                       <a href="#">Download JSON</a>
                     </div>
                   </div>
@@ -374,6 +397,17 @@ transactions include sales volumes, sales values and royalties.</p>
 
       window.onload = main;
     </script>
+
+<!-- creates alternate coloring on exhibit tables -->
+<script>
+  var zebraStyler = function(item, database, tr) {
+      if (tr.rowIndex % 2) {
+          tr.style.background = '#c0dcdf';
+      } else {
+          tr.style.background = '#e5e8e3';
+      }
+  }
+</script>
     
   
  <!--   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>  
