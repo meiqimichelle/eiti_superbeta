@@ -2,6 +2,12 @@
   padding-left: 70px;
   padding-right: 70px;
 }
+.textRight {
+  text-align: right;
+}
+.textCenter {
+  text-align: center;
+}
 
 /*============================================
 nav
@@ -445,6 +451,7 @@ Sandbox styling for data and maps
   h1 {
     font-size: 1.5em;
     font-weight:700;
+    padding-bottom: 1em;
   }
 }
 .tab-nav {
@@ -466,6 +473,22 @@ Sandbox styling for data and maps
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+}
+.disbTabSection {
+  margin-bottom: 20px;
+  padding: 20px 0 20px 0;
+  &.bgputty {
+    background-color: $putty;
+  }
+  p {
+    font-size: 1.2em;
+  }
+  ul {
+    list-style: disc inside;
+    li {
+      padding-bottom: 0;
+    }
+  }
 }
 .exhibit-text-facet {
   width: 50%;

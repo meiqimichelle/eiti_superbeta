@@ -2571,8 +2571,8 @@ table.rounded thead th, table.rounded thead td, table.rounded caption + tbody tr
 
 /* Tooltips */
 .ttip { position: relative; cursor: pointer; }
-.ttip:after { display: block; background: #6ab5c3; border: 1px solid #6ab5c3; border-bottom: 0; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; padding: 0.5em 0.75em; width: auto; min-width: 130px; max-width: 500px; position: absolute; left: 0; bottom: 101%; margin-bottom: 8px; text-align: left; color: #fff; content: attr(data-tooltip); line-height: 1.5; font-size: 16px; font-weight: normal; font-style: normal; -webkit-transition: opacity 0.1s ease; -moz-transition: opacity 0.1s ease; -o-transition: opacity 0.1s ease; transition: opacity 0.1s ease; filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0); opacity: 0; pointer-events: none; background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #97ccd5), color-stop(100%, #6ab5c3)); background-image: -webkit-linear-gradient(top, #97ccd5, #6ab5c3); background-image: -moz-linear-gradient(top, #97ccd5, #6ab5c3); background-image: -o-linear-gradient(top, #97ccd5, #6ab5c3); background-image: linear-gradient(top, #97ccd5, #6ab5c3); -webkit-box-shadow: 0 0 5px 0 rgba(106, 181, 195, 0.25); -moz-box-shadow: 0 0 5px 0 rgba(106, 181, 195, 0.25); box-shadow: 0 0 5px 0 rgba(106, 181, 195, 0.25); }
-.ttip:before { content: " "; width: 0; height: 0; position: absolute; bottom: 101%; left: 8px; border-top: 9px solid #6ab5c3 !important; border-left: 9px solid transparent; border-right: 9px solid transparent; -webkit-transition: opacity 0.1s ease; -moz-transition: opacity 0.1s ease; -o-transition: opacity 0.1s ease; transition: opacity 0.1s ease; filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0); opacity: 0; pointer-events: none; }
+.ttip:after { display: block; background: #0793cd; border: 1px solid #0793cd; border-bottom: 0; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; padding: 0.5em 0.75em; width: auto; min-width: 130px; max-width: 500px; position: absolute; left: 0; bottom: 101%; margin-bottom: 8px; text-align: left; color: #fff; content: attr(data-tooltip); line-height: 1.5; font-size: 16px; font-weight: normal; font-style: normal; -webkit-transition: opacity 0.1s ease; -moz-transition: opacity 0.1s ease; -o-transition: opacity 0.1s ease; transition: opacity 0.1s ease; filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0); opacity: 0; pointer-events: none; }
+.ttip:before { content: " "; width: 0; height: 0; position: absolute; bottom: 101%; left: 8px; border-top: 9px solid #0793cd !important; border-left: 9px solid transparent; border-right: 9px solid transparent; -webkit-transition: opacity 0.1s ease; -moz-transition: opacity 0.1s ease; -o-transition: opacity 0.1s ease; transition: opacity 0.1s ease; filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0); opacity: 0; pointer-events: none; }
 .ttip:hover:after, .ttip:hover:before { -webkit-transition: opacity 0.1s ease; -moz-transition: opacity 0.1s ease; -o-transition: opacity 0.1s ease; transition: opacity 0.1s ease; filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100); opacity: 1; }
 
 @media only screen and (max-width: 768px) { .ttip:after, .ttip:before { display: none; } }
@@ -2586,6 +2586,10 @@ table.rounded thead th, table.rounded thead td, table.rounded caption + tbody tr
 .ie9 .radio.checked i, .ie9 .checkbox.checked i { top: 0; }
 
 .pad50RL { padding-left: 70px; padding-right: 70px; }
+
+.textRight { text-align: right; }
+
+.textCenter { text-align: center; }
 
 /*============================================
 nav
@@ -2720,7 +2724,7 @@ Sandbox styling for data and maps
 #top-panels > table { background: #c8d7d9; border: none; }
 
 .tab-content { background-color: #c8d7d9; padding: 20px 30px; }
-.tab-content h1 { font-size: 1.5em; font-weight: 700; }
+.tab-content h1 { font-size: 1.5em; font-weight: 700; padding-bottom: 1em; }
 
 .tab-nav { border-bottom: none; }
 
@@ -2729,6 +2733,12 @@ Sandbox styling for data and maps
 .tab-nav > li > a { text-shadow: none; border: none; -webkit-border-radius: 0; -moz-border-radius: 0; -ms-border-radius: 0; -o-border-radius: 0; border-radius: 0; }
 
 .tab-nav > li { -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; }
+
+.disbTabSection { margin-bottom: 20px; padding: 20px 0 20px 0; }
+.disbTabSection.bgputty { background-color: #e5e8e3; }
+.disbTabSection p { font-size: 1.2em; }
+.disbTabSection ul { list-style: disc inside; }
+.disbTabSection ul li { padding-bottom: 0; }
 
 .exhibit-text-facet { width: 50%; }
 .exhibit-text-facet:before { content: "Type a search term here: "; }
